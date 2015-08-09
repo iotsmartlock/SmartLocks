@@ -1,83 +1,35 @@
-<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".HomeFragment"
+    tools:context="smartlock.iot.android.iot_smart.activity.HomeFragment">
 
-    android:clickable="true"
-    android:elevation="5dp"
-    >
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:orientation="horizontal"
-        android:id="@+id/linearLayout">
-        <LinearLayout
-            android:layout_width="wrap_content"
+        android:orientation="horizontal">
+        <com.gc.materialdesign.views.ButtonRectangle
+            android:id="@+id/lockbutton"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:background="@color/colorPrimaryDark"
-            android:layout_marginTop="12dp"
-            android:layout_marginLeft="12dp"
-            android:layout_marginRight="30dp"
+            android:background="#3F51B5"
+            android:layout_marginRight="50dp"
+            android:text="LOCK"
             android:layout_weight="1"
-            >
-            <Button
-                android:id="@+id/lockbutton"
+            android:clickable="true"
+            android:onClick="lockbuttonOnClick"/>
 
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:paddingTop="15dp"
-                android:paddingBottom="15dp"
-                android:paddingLeft="35dp"
-                android:paddingRight="35dp"
-                android:text="@string/title_lock"
-                android:textStyle="normal"
-                android:background="@drawable/custom_bg"
-                android:textColor="#ffffffff"
-                android:elevation="10dp"
-                android:elegantTextHeight="true"
-                android:ellipsize="end"
-                android:clickable="true"
-                android:onClick="lockbuttonOnClick" />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
+        <com.gc.materialdesign.views.ButtonRectangle
+            android:id="@+id/unlockbutton"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:background="@color/colorPrimaryDark"
-            android:layout_marginTop="12dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginEnd="12dp"
-            android:layout_weight="1"
-            >
-            <Button
-                android:id="@+id/unlockbutton"
-                android:paddingTop="15dp"
-                android:paddingBottom="15dp"
-                android:paddingLeft="25dp"
-                android:paddingRight="25dp"
+            android:background="#3F51B5"
+            android:text="UNLOCK"
+            android:layout_weight="2"
+            android:clickable="true"
+            android:onClick="unlockbuttonOnClick"/>
 
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/title_unlock"
-                android:textStyle="normal"
-
-                android:layout_alignParentEnd="true"
-                android:background="@drawable/custom_bg"
-                android:textColor="#ffffffff"
-                android:typeface="normal"
-
-                android:elegantTextHeight="true"
-                android:elevation="10dp"
-                android:nestedScrollingEnabled="false"
-                android:onClick="unlockbuttonOnClick"
-                android:clickable="true" />
-        </LinearLayout>
     </LinearLayout>
-
-
 </RelativeLayout>

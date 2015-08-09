@@ -5,6 +5,10 @@ package com.smartlockinc.smartlocks;
     import android.content.Context;
     import android.content.ContextWrapper;
     import android.content.DialogInterface;
+
+    import com.gc.materialdesign.views.ButtonRectangle;
+    import com.gc.materialdesign.views.CustomView;
+
     import android.content.Intent;
     import android.content.IntentSender;
     import android.content.pm.PackageInfo;
@@ -49,7 +53,7 @@ package com.smartlockinc.smartlocks;
     import com.google.android.gms.plus.model.people.Person;
     import com.facebook.login.LoginManager;
     import com.google.android.gcm.GCMRegistrar;
-    import com.smartlockinc.smartlocks.adapter.FragmentDrawer;
+
     import com.squareup.picasso.Picasso;
 
     import org.json.JSONException;
@@ -79,14 +83,13 @@ package com.smartlockinc.smartlocks;
         private SignInButton signinButton;
         ConnectionDetector cd;
         SessionManager session;
-        ImageView imageview;
         EditText password;
         photourl uri;
         EditText email;
         static String Emailid;
         static String Password;
         Context mcontext;
-        Button register;
+        ButtonRectangle register;
         private static int RC_FB_SIGN_IN;
 
 
@@ -96,7 +99,7 @@ package com.smartlockinc.smartlocks;
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             FacebookSdk.sdkInitialize(getApplicationContext());
-            setContentView(R.layout.register);
+            setContentView(R.layout.fragment_register);
             mcontext = getApplicationContext();
 
             fbbutton = (LoginButton) findViewById(R.id.fbbutton);
@@ -128,9 +131,9 @@ package com.smartlockinc.smartlocks;
 
             email = (EditText) findViewById(R.id.Email);
             password = (EditText) findViewById(R.id.Password);
-            register = (Button) findViewById(R.id.btnRegister);
+            register = (ButtonRectangle) findViewById(R.id.btnRegister);
 
-            register.setOnClickListener(new View.OnClickListener() {
+            register.setOnClickListener(new CustomView.OnClickListener() {
                 public void onClick(View v) {
                     Password = password.getText().toString();
                     Emailid = email.getText().toString();

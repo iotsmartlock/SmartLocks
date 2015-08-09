@@ -5,15 +5,16 @@ package com.smartlockinc.smartlocks;
  */
 import android.app.Activity;
 import android.view.View;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.smartlockinc.smartlocks.R;
+
 
 
 public class HomeFragment extends Fragment {
@@ -21,10 +22,13 @@ public class HomeFragment extends Fragment {
     public HomeFragment() {
         // Required empty public constructor
     }
-
+    public ActionBar getActionBar() {
+        return ((ActionBarActivity) getActivity()).getSupportActionBar();
+    }
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getActionBar().setTitle("Home");
 
     }
 

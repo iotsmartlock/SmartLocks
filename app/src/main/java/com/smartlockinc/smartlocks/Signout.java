@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.IntentSender;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,13 +14,14 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Toast;
-
+import android.support.v7.app.ActionBarActivity;
 import com.facebook.FacebookSdk;
 import com.facebook.login.LoginManager;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.plus.Plus;
+
 import com.google.android.gms.plus.model.people.Person;
 import com.facebook.login.widget.LoginButton;
 
@@ -54,19 +56,23 @@ public class Signout extends Fragment implements  View.OnClickListener, GoogleAp
     public Signout() {
         // Required empty public constructor
     }
+    public ActionBar getActionBar() {
+        return ((ActionBarActivity) getActivity()).getSupportActionBar();
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mActivity = getActivity();
         mContext = getActivity().getApplicationContext();
+        getActionBar().setTitle("Sign Out");
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         FacebookSdk.sdkInitialize(getActivity().getApplicationContext());
-        View view = inflater.inflate(R.layout.signout,
+        View view = inflater.inflate(R.layout.fragment_sign_out,
                 container, false);
 
         mGoogleApiClient = new GoogleApiClient.Builder(mContext).addConnectionCallbacks(this).addOnConnectionFailedListener(this).addApi(Plus.API, Plus.PlusOptions.builder().build()).addScope(Plus.SCOPE_PLUS_LOGIN).build();
@@ -89,7 +95,7 @@ public class Signout extends Fragment implements  View.OnClickListener, GoogleAp
                     mGoogleApiClient.disconnect();
                     session = new SessionManager(mContext);
                     session.atlogout();
-                    Toast.makeText(mContext,"Loggedout!",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(mContext,"Logged out!",Toast.LENGTH_SHORT).show();
                     Intent i = new Intent(mContext,Signupstartup.class);
                     startActivity(i);
                     getActivity().finish();

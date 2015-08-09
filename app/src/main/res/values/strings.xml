@@ -2,14 +2,18 @@
     <string name="app_name">SmartLocks</string>
     <string name="action_settings">Settings</string>
     <string name="action_search">Search</string>
-    <string name="drawer_open">Open</string>
-    <string name="drawer_close">Close</string>
+
 
     <string name="nav_item_home">Home</string>
     <string name="nav_item_friends">Lock Logs</string>
     <string name="nav_item_notifications">Shared Key</string>
     <string name="nav_item_signout">Signout</string>
     <string name="nav_item_register">Register</string>
+    <string name="drawer_open">Menu opened</string>
+    <string name="drawer_close">Menu closed</string>
+
+
+
     <!-- navigation drawer item labels  -->
     <string-array name="nav_drawer_labels">
         <item>@string/nav_item_home</item>

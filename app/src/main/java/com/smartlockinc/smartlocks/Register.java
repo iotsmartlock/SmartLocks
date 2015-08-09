@@ -11,6 +11,8 @@ import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -41,7 +43,7 @@ import com.google.android.gms.plus.Plus;
 import com.google.android.gms.plus.model.people.Person;
 
 import com.google.android.gcm.GCMRegistrar;
-import com.smartlockinc.smartlocks.adapter.FragmentDrawer;
+
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -58,12 +60,16 @@ import static com.smartlockinc.smartlocks.CommonUtilities.*;
 public class Register extends Fragment  {
 
     public Register() {
-        // Required empty public constructo
+        // Required empty public constructor
     }
 
+    public ActionBar getActionBar() {
+        return ((ActionBarActivity) getActivity()).getSupportActionBar();
+    }
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getActionBar().setTitle("Register");
         Intent i = new Intent(getActivity().getApplicationContext(),Signupstartup.class);
         startActivity(i);
         getActivity().finish();

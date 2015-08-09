@@ -4,6 +4,8 @@ package com.smartlockinc.smartlocks;
  * Created by SunnySingh on 7/5/2015.
  */
 import android.app.Activity;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 
 
@@ -22,9 +24,13 @@ public class LockLogsFragment extends Fragment {
         // Required empty public constructor
     }
 
+    public ActionBar getActionBar() {
+        return ((ActionBarActivity) getActivity()).getSupportActionBar();
+    }
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getActionBar().setTitle("Lock Logs");
 
     }
 
