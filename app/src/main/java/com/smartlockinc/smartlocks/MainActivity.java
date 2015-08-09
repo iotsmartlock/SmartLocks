@@ -193,10 +193,10 @@ public class MainActivity extends ActionBarActivity
                     getSupportFragmentManager().beginTransaction().replace(R.id.container, new SharedKeyFragment()).commit();
                     break;
                 case 3:
-                    getSupportFragmentManager().beginTransaction().replace(R.id.container, new Register()).commit();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.container, new Signout()).commit();
                     break;
                 case 4:
-                    getSupportFragmentManager().beginTransaction().replace(R.id.container, new Signout()).commit();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.container, new Register()).commit();
                     break;
 
             }
